@@ -3,12 +3,12 @@ package com.example.domain;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class StudentController {
 
 	@Autowired
@@ -25,7 +25,6 @@ public class StudentController {
 	@ResponseBody
 	@Transactional()
 	public String save() {
-		System.out.println("111");
 		Student student = new Student();
 		student.setId(4L);
 		student.setName("张三");
