@@ -22,11 +22,11 @@ import javax.persistence.Version;
 import javax.validation.groups.Default;
 
 import org.joda.time.DateTime;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.domain.Persistable;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.example.audit.AuditingEntityListener;
-import com.example.audit.CreatedDate;
-import com.example.audit.LastModifiedDate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.joda.ser.DateTimeSerializer;

@@ -33,17 +33,22 @@ dependencies {
     	'org.springframework.restdocs:spring-restdocs-mockmvc'
     )
 	compile(
+		'org.springframework.boot:spring-boot-starter-data-jpa',
+		'org.springframework.boot:spring-boot-starter-data-rest',
+		'org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE',
+		'org.projectlombok:lombok:1.16.12',
+		'mysql:mysql-connector-java:5.1.38',
+		'org.springframework.statemachine:spring-statemachine-core:1.2.6.RELEASE',
 		'org.springframework.boot:spring-boot-starter-freemarker',
 		'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.8.8',
 		'joda-time:joda-time:2.9.7',
 		'javax.inject:javax.inject:1',
-		'org.springframework.boot:spring-boot-starter-data-jpa',
 		'org.apache.commons:commons-collections4:4.1',
 		'org.apache.commons:commons-lang3:3.5'
 	)
-	compile("org.springframework.boot:spring-boot-starter-data-rest")
-	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.1.RELEASE'
-    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
-    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
-    compile group: 'org.springframework.statemachine', name: 'spring-statemachine-core', version: '1.2.6.RELEASE'
+	
+	runtime(
+		'org.springframework.boot:spring-boot-devtools',
+		'mysql:mysql-connector-java'
+	)
 }
