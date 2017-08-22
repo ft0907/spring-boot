@@ -1,10 +1,16 @@
 [#if page.content?has_content]
-	<ul>
+	<table>
+		<tr>
+			<th>名称</th>
+			<th>年龄</th>
+		</tr>
 		[#list page.content as student]
-			<li>名称: ${student.name}</li>
-			<li>年龄: ${student.age}</li>
+			<tr>
+				<td>${student.name}</td>
+				<td>${student.age}</td>
+			</tr>
 		[/#list]
-	</ul>
+	</table>
 [#else]
 	没有任何数据
 [/#if]

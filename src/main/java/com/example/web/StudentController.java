@@ -12,17 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.domain.Student;
+import com.example.service.StudentService;
 
 @Controller
 @RequestMapping("/student")
 public class StudentController {
 
 	@Inject
-	private BaseRepository baseRepository;
+	private StudentService studentService;
 
 	@GetMapping("/list")
 	public String list(@PageableDefault(size = 20) Pageable pageable, ModelMap model) {
-		model.addAttribute("page", baseRepository.findAll(pageable));
+		model.addAttribute("page", studentService.findAll(pageable));
 		return "student/list";
 	}
 
@@ -36,22 +37,22 @@ public class StudentController {
 
 	@PostMapping("/save")
 	public String save(Student student) {
-		baseRepository.save(student);
+		studentService.save(student);
 		return "redirect:list";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String update(Long id) {
-		Student student = baseRepository.findOne(id);
+		Student student = studentService.findOne(id);
 		student.setName("333");
-		baseRepository.saveAndFlush(student);
+		studentService.saveAndFlush(student);
 		return "更新完毕";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(Long id) {
-		Student student = baseRepository.findOne(id);
-		baseRepository.delete(student);
+		Student student = studentService.findOne(id);
+		studentService.delete(student);
 		return "删除完毕";
 	}
 }
