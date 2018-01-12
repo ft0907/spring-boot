@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name="orders")
+@Entity(name = "orders")
 public class Order extends BaseEntity<Long> {
 
 	private static final long serialVersionUID = 3050601946744069117L;

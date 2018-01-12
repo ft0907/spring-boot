@@ -46,7 +46,7 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-public abstract class BaseEntity<PK extends Serializable> implements Persistable<PK> {
+public class BaseEntity<PK extends Serializable> implements Persistable<PK> {
 
 	private static final long serialVersionUID = 6702319381809051415L;
 
